@@ -1,0 +1,29 @@
+#pragma once
+
+
+#ifndef SWARM_H_
+#define SWARM_H_
+
+#include "Particle.h"
+
+namespace firstProgram 
+{
+    class Swarm
+    {
+    public:
+        const static int numberOfParricles=5000;
+    private:
+        Particle  *m_pParticles;
+        int m_lastTime;
+    public:
+        Swarm();
+        ~Swarm();
+        void update(int elapsed);
+
+        const Particle *const getParticles() { return m_pParticles; };
+    };
+}
+
+
+#endif
+

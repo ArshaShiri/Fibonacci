@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Screen Project.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Screen.cpp
+c:\users\arsha\source\repos\fibo\screen project\screen.cpp(75): warning C4551: function call missing argument list
+c:\users\arsha\source\repos\fibo\screen project\screen.cpp(333): warning C4551: function call missing argument list
+c:\users\arsha\source\repos\fibo\screen project\screen.cpp(334): warning C4551: function call missing argument list
+  Screen Project.vcxproj -> C:\Users\arsha\source\repos\Fibo\x64\Debug\Fib.exe
