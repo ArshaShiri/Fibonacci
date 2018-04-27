@@ -3,7 +3,10 @@
 #include "Swarm.h"
 
 using namespace std;
-using namespace firstProgram;
+using namespace screenNameSpace;
+using namespace swarmNameSpace;
+using namespace particleNameSpace;
+
 
 
 int main(int arg, char *argv[])
@@ -48,7 +51,7 @@ int main(int arg, char *argv[])
 
             screen.setPixel(x, y, red, green, blue);
         }
-      // screen.boxBlur(1, 1);
+      //screen.boxBlur(1, 1);
         screen.blur("Gauss", 3, 3);
     //   screen.gaussianBlur(2, 2);
         // Draw the screen

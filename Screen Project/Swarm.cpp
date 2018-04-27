@@ -1,6 +1,6 @@
 #include "Swarm.h"
 
-namespace firstProgram
+namespace swarmNameSpace
 {
     Swarm::Swarm() : m_lastTime(0)
     {

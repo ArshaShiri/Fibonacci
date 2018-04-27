@@ -6,12 +6,12 @@
 
 #include "Particle.h"
 
-namespace firstProgram 
+namespace swarmNameSpace 
 {
     class Swarm
     {
     public:
-        const static int numberOfParricles=5000;
+        const static int numberOfParricles=30;
     private:
         Particle  *m_pParticles;
         int m_lastTime;

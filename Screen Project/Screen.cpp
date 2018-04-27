@@ -3,7 +3,7 @@
 
 
 
-namespace firstProgram {
+namespace screenNameSpace {
 
     void getRandomColor(
         unsigned char *&pColor, const double smoothChangeRed, const double smoothChangeGreen, const double smoothChangeBlue, int elapsed)
@@ -27,7 +27,7 @@ namespace firstProgram {
         else if (blurType == "Gauss")
         {
             // intialising standard deviation to 1.0
-            double sigma = 1;
+            double sigma = 0.01;
             double r, s = 2.0 * sigma * sigma;
             r = sqrt(row*row + column * column);
             weight = (exp(-(r*r) / s)) / (M_PI * s);
@@ -136,6 +136,7 @@ namespace firstProgram {
                 int redAvg = 0;
                 int greenAvg = 0;
                 int blueAvg = 0;
+                double totalWeight = 0;
                 for (int row = -nearbyPointsInX; row <= nearbyPointsInX; row++)
                 {
                     for (int col = -nearbyPointsInY; col <= nearbyPointsInY; col++)
@@ -143,6 +144,7 @@ namespace firstProgram {
                         currentX = x + col;
                         currentY = y + row;
                         weight = blurKernel(blurType, numberOfRows, numberOfColumns, row, col);
+                        totalWeight += weight;
                         if (currentX >= 0 && currentX < screenWidth && currentY >= 0 && currentY < screenHeight)
                         {
                             Uint32 color = m_bufferBlur[currentY * screenWidth + currentX];
@@ -154,13 +156,13 @@ namespace firstProgram {
                             redAvg += red * weight;
                             greenAvg += green * weight;
                             blueAvg += blue * weight;
-                            totalWeight += weight;
                         }
                     }
                 }
-                Uint8 red = (Uint8)(redAvg / totalWeight / totalNumberOfPixels);
-                Uint8 green = (Uint8)(greenAvg / totalWeight / totalNumberOfPixels);
-                Uint8 blue = (Uint8)(blueAvg / totalWeight / totalNumberOfPixels);
+                if (blurType == "Guass") totalNumberOfPixels = totalWeight;
+                Uint8 red = redAvg / totalNumberOfPixels;
+                Uint8 green = greenAvg / totalNumberOfPixels;
+                Uint8 blue = blueAvg / totalNumberOfPixels;
 
                 setPixel(x, y, red, green, blue);
 

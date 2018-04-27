@@ -1,14 +1,8 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (Screen Project.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Screen.cpp
-Screen.cpp(75): warning C4551: function call missing argument list
-Screen.cpp(154): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-Screen.cpp(155): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-Screen.cpp(156): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-Screen.cpp(336): warning C4551: function call missing argument list
-Screen.cpp(337): warning C4551: function call missing argument list
+  Particle.cpp
   Generating code
-  1 of 99 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+  3 of 99 functions ( 3.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Screen Project.vcxproj -> C:\Users\arsha\source\repos\Fibo\x64\Release\Fib.exe

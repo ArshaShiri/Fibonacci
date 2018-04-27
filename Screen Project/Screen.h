@@ -7,7 +7,7 @@
 #include <math.h>
 #include <SDL.h>
 
-namespace firstProgram
+namespace screenNameSpace
 {
 
     void getRandomColor(

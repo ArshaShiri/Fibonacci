@@ -8,7 +8,7 @@
 #include<math.h>
 #include<time.h>
 
-namespace firstProgram
+namespace particleNameSpace
 {
     // In struct by default the members are public. 
     // We want the x and y to be accessible directly which is much faster than a gettr function and is suitable for rendering.
