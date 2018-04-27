@@ -52,7 +52,7 @@ int main(int arg, char *argv[])
             screen.setPixel(x, y, red, green, blue);
         }
       //screen.boxBlur(1, 1);
-        screen.blur("Gauss", 3, 3);
+        screen.blur("Box", 3, 3);
     //   screen.gaussianBlur(2, 2);
         // Draw the screen
         screen.update();

@@ -4,7 +4,7 @@ namespace swarmNameSpace
 {
     Swarm::Swarm() : m_lastTime(0)
     {
-        m_pParticles = new Particle[numberOfParricles];
+        m_pParticles = new particleNameSpace::Particle[numberOfParricles];
     }
 
     void Swarm::update(int elapsed)

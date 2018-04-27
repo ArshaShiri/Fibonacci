@@ -31,7 +31,6 @@ namespace screenNameSpace
         bool init();
         void blur(std::string blurType, int numberOfRows, int numberOfColumns);
         void boxBlur(int numberOfRows, int numberOfColumns);
-        void gaussianBlur(int numberOfRows, int numberOfColumns);
         void update();
         void setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
         bool processEvent();
