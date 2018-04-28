@@ -18,9 +18,10 @@ namespace particleNameSpace
         double m_y;
 
     private:
-        double m_speed; //Constant speed for circular movement
-        double m_direction; //angle from 0 to 360
+        double m_speed;     //Constant speed for circular movement
+        double m_direction; //Angle from 0 to 360
         double radiusOfFib;
+        double m_updateSpeed;
 
     private:
         void init();

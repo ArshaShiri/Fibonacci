@@ -1,8 +1,6 @@
 #include "Screen.h"
 #include <vector>
 
-
-
 namespace screenNameSpace {
 
     void getRandomColor(
@@ -41,7 +39,6 @@ namespace screenNameSpace {
 
     Screen::Screen() : m_window(NULL), m_rendere(NULL), m_texture(NULL), m_buffer(NULL), m_bufferBlur(NULL) {}
     
-
     bool Screen::init()
     {
         if (SDL_INIT_EVERYTHING < 0)
@@ -49,8 +46,6 @@ namespace screenNameSpace {
             return false;
         }
  
-        std::string test;
-
         m_window = SDL_CreateWindow(
             "Particle Fire Explosion", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_SHOWN);
 
@@ -169,145 +164,6 @@ namespace screenNameSpace {
             }
         }
     }
-
-    void Screen::boxBlur(int numberOfRows, int numberOfColumns)
-    {
-        //swap the buffers so the pixel info is in m_bufferBlur and we are drawing to m_buffer
-        Uint32 *tempBuffer = m_buffer;
-        m_buffer = m_bufferBlur;
-        m_bufferBlur = tempBuffer;
-        int currentX = 0;
-        int currentY = 0;
-        int totalNumberOfPixels = (2 * numberOfRows + 1) * (2 * numberOfColumns + 1);
-        
-
-        for (int y = 0; y < Screen::screenHeight; y++)
-        {
-            for (int x = 0; x < Screen::screenWidth; x++)
-            {
-                /* Average the central pixle with the ones around it (in a 3x3 matrix)
-                *
-                * 0 0 0
-                * 0 1 0
-                * 0 0 0
-                */ 
-                int redTotal = 0;
-                int greenTotal = 0;
-                int blueTotal = 0;
-                for (int row = -numberOfRows; row <= numberOfRows; row++)
-                {
-                    for (int col = -numberOfColumns; col <= numberOfColumns; col++)
-                    {
-                        currentX = x + col;
-                        currentY = y + row;
-                        if (currentX >= 0 && currentX < screenWidth && currentY >= 0 && currentY < screenHeight)
-                        {
-                            Uint32 color = m_bufferBlur[currentY * screenWidth + currentX];
-                            Uint8 red = color >> 24;
-                            Uint8 green = color >> 16;
-                            Uint8 blue = color >> 8;
-
-                            redTotal += red;
-                            greenTotal += green;
-                            blueTotal += blue;
-                        }
-                    }
-                }
-                Uint8 red = redTotal / totalNumberOfPixels;
-                Uint8 green = greenTotal / totalNumberOfPixels;
-                Uint8 blue = blueTotal / totalNumberOfPixels;
-
-                setPixel(x, y, red, green, blue);
-
-            }
-        }
-    }
-
-    /*void Screen::gaussianBlur(const int numberOfRows, const int numberOfColumns)
-    {
-        // intialising standard deviation to 1.0
-        double sigma = 1.0;
-        double r, s = 2.0 * sigma * sigma;
-        double **kernel;
-
-        kernel = new double *[2 * numberOfRows + 1];
-        for (int i = 0; i < 2 * numberOfRows + 1; i++)
-            kernel[i] = new double[2 * numberOfRows + 1];
-        //double kernel[numberOfRows][numberOfColumns];
-
-        // sum is for normalization
-        double sum = 0.0;
-
-        // generating 5x5 kernel
-        for (int x = -2; x <= 2; x++)
-        {
-            for (int y = -2; y <= 2; y++)
-            {
-                r = sqrt(x*x + y * y);
-                kernel[x + 2][y + 2] =
-                    (exp(-(r*r) / s)) / (M_PI * s);
-                sum += kernel[x + 2][y + 2];
-            }
-        }
-
-        // normalising the Kernel
-        for (int i = 0; i < 5; ++i)
-            for (int j = 0; j < 5; ++j)
-                kernel[i][j] /= sum;
-
-        //swap the buffers so the pixel info is in m_bufferBlur and we are drawing to m_buffer
-        Uint32 *tempBuffer = m_buffer;
-        m_buffer = m_bufferBlur;
-        m_bufferBlur = tempBuffer;
-        int currentX = 0;
-        int currentY = 0;
-        int totalNumberOfPixels = (2 * numberOfRows + 1) * (2 * numberOfColumns + 1);
-
-        for (int y = 0; y < Screen::screenHeight; y++)
-        {
-            for (int x = 0; x < Screen::screenWidth; x++)
-            {
-                /* Average the central pixle with the ones around it (in a 3x3 matrix)
-                *
-                * 0 0 0
-                * 0 1 0
-                * 0 0 0
-                */ /*
-                int redTotal = 0;
-                int greenTotal = 0;
-                int blueTotal = 0;
-                for (int row = -numberOfRows; row <= numberOfRows; row++)
-                {
-                    for (int col = -numberOfColumns; col <= numberOfColumns; col++)
-                    {
-                        currentX = x + col;
-                        currentY = y + row;
-                        if (currentX >= 0 && currentX < screenWidth && currentY >= 0 && currentY < screenHeight)
-                        {
-                            Uint32 color = m_bufferBlur[currentY * screenWidth + currentX];
-                            Uint8 red = color >> 24;
-                            Uint8 green = color >> 16;
-                            Uint8 blue = color >> 8;
-
-                            redTotal += red * kernel[row][col];
-                            greenTotal += green * kernel[row][col];
-                            blueTotal += blue * kernel[row][col];
-                        }
-                    }
-                }
-                Uint8 red = redTotal;
-                Uint8 green = greenTotal;
-                Uint8 blue = blueTotal;
-
-                setPixel(x, y, red, green, blue);
-            }
-        }
-
-        for (int i = 0; i < numberOfRows; i++)
-            delete[] kernel[i];
-        delete[] kernel;
-    }
-    */
 
     void Screen::update()
     {

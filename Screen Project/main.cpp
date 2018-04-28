@@ -7,8 +7,6 @@ using namespace screenNameSpace;
 using namespace swarmNameSpace;
 using namespace particleNameSpace;
 
-
-
 int main(int arg, char *argv[])
 {
     srand(time(NULL)); //seeds random number generator
@@ -46,14 +44,15 @@ int main(int arg, char *argv[])
         {
             Particle particle = pParticles[i];
 
-            int x = (particle.m_x + 1) * screen.screenWidth / 2;
-            int y = particle.m_y * screen.screenWidth / 2 + screen.screenHeight / 2;
+            int x = (particle.m_x + 20) * screen.screenWidth / 40;
+            int y = (particle.m_y + 20) * screen.screenHeight / 40;
+            // why this ?? int y = particle.m_y * screen.screenWidth / 2 + screen.screenHeight / 2;
 
             screen.setPixel(x, y, red, green, blue);
         }
-      //screen.boxBlur(1, 1);
-        screen.blur("Box", 3, 3);
-    //   screen.gaussianBlur(2, 2);
+
+        //screen.blur("Box", 3, 3);
+
         // Draw the screen
         screen.update();
         if (screen.processEvent() == false) {break;}

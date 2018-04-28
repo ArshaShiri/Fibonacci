@@ -16,8 +16,8 @@ namespace screenNameSpace
     class Screen
     {
     public:
-        static const int screenWidth = 800;
-        static const int screenHeight = 600;
+        static const int screenWidth = 1000;
+        static const int screenHeight = 750;
 
     private:
         SDL_Window * m_window;
@@ -30,7 +30,6 @@ namespace screenNameSpace
         Screen();
         bool init();
         void blur(std::string blurType, int numberOfRows, int numberOfColumns);
-        void boxBlur(int numberOfRows, int numberOfColumns);
         void update();
         void setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
         bool processEvent();
@@ -38,6 +37,6 @@ namespace screenNameSpace
         ~Screen();
     };
 
-}
+}// namespace screenNameSpace
 
 #endif // !SCREEN_H_

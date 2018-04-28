@@ -11,7 +11,7 @@ namespace swarmNameSpace
     class Swarm
     {
     public:
-        const static int numberOfParricles=5000;
+        const static int numberOfParricles=10;
     private:
         particleNameSpace::Particle  *m_pParticles;
         int m_lastTime;

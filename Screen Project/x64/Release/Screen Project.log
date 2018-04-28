@@ -1,7 +1,20 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (Screen Project.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Particle.cpp
+  Screen.cpp
+Screen.cpp(70): warning C4551: function call missing argument list
+Screen.cpp(151): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+Screen.cpp(152): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+Screen.cpp(153): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+Screen.cpp(157): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+Screen.cpp(194): warning C4551: function call missing argument list
+Screen.cpp(195): warning C4551: function call missing argument list
+  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.16299.0\ucrt\corecrt_math_defines.h(22): warning C4005: 'M_PI': macro redefinition
+  c:\lib\sdl2\include\SDL_stdinc.h(499): note: see previous definition of 'M_PI'
+main.cpp(12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+main.cpp(47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+main.cpp(48): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   Generating code
-  3 of 99 functions ( 3.0%) were compiled, the rest were copied from previous compilation.
+  4 of 32 functions (12.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
